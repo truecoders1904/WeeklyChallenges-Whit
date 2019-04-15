@@ -49,7 +49,7 @@ namespace ChallengesWithTestsMarkVII.Tests
             double actual = challenger.Subtract(minuend, subtrahend);
 
             // Assert
-            Assert.Equal(expectedDifference, actual);
+            Assert.Equal(Math.Round(expectedDifference, 2), Math.Round(actual, 2));
         }
 
         [Theory]
