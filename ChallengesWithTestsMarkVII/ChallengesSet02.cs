@@ -52,8 +52,6 @@ namespace ChallengesWithTestsMarkVII
             {
                 return false;
             }
-                
-
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
@@ -67,31 +65,23 @@ namespace ChallengesWithTestsMarkVII
             {
                 return numbers.Min() + numbers.Max();
             }
-
-
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
         {
-            int str1length = str1.Length;
-            int str2length = str2.Length;
 
-            if (str1length >= str2length)
+            if (str1.Length >= str2.Length)
             {
-                return str2length;
+                return str2.Length;
             }
-            else if (str1length <= str2length)
+            else if (str1.Length <= str2.Length)
             {
-                return str1length;
+                return str1.Length;
             }
             else
             {
                 return 0;
             }
-            
-
-
-
         }
 
         public int Sum(int[] numbers)
@@ -106,8 +96,6 @@ namespace ChallengesWithTestsMarkVII
                     sum += i;
                 }
             return sum;
-
-
         }
 
         public int SumEvens(int[] numbers)
@@ -123,7 +111,6 @@ namespace ChallengesWithTestsMarkVII
                     sum += i;
                 }
             return sum;
-
         }
 
         public bool IsSumOdd(List<int> numbers)
@@ -140,7 +127,6 @@ namespace ChallengesWithTestsMarkVII
             {
                 return true;
             }
-
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
