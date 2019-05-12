@@ -1,4 +1,4 @@
-﻿gitgit busing System;
+﻿using System;
 
 namespace ChallengesWithTestsMarkVII
 {
@@ -40,7 +40,14 @@ namespace ChallengesWithTestsMarkVII
 
         public bool CouldFormTriangle(int sideLength1, int sideLength2, int sideLength3)
         {
-            throw new NotImplementedException();
+            if (sideLength1 + sideLength2 > sideLength3 && sideLength1 + sideLength3 > sideLength2 && sideLength2 + sideLength3 > sideLength1)
+            {
+                return true;
+            }
+            else
+            { 
+                return false; 
+            }
         }
 
         public bool IsStringANumber(string input)
@@ -50,12 +57,61 @@ namespace ChallengesWithTestsMarkVII
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            throw new NotImplementedException();
+            int nullCount = 0;
+            int notNullCount = 0;
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (objs[i] == null)
+                {
+                    nullCount += 1;
+                }
+                else
+                {
+                    notNullCount += 1;
+                }
+            }
+            if (nullCount > notNullCount)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+            {
+                return 0;
+            }
+            double averageSum = 0;
+            double averageCount = 0;
+            int nonevencount = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] % 2 == 0)
+                {
+                    averageSum += numbers[i];
+                    averageCount += 1;
+                }
+                else
+                {
+                    nonevencount += 1;
+                }
+            }
+
+            if (nonevencount != numbers.Length)
+            {
+
+                return averageSum / averageCount;
+            }
+            else
+            {
+                return 0;
+            }
+
         }
 
         public int Factorial(int number)
