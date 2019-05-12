@@ -1,4 +1,4 @@
-﻿using System;
+﻿gitgit busing System;
 
 namespace ChallengesWithTestsMarkVII
 {
@@ -6,7 +6,21 @@ namespace ChallengesWithTestsMarkVII
     {
         public int AddEvenSubtractOdd(int[] numbers)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] % 2 == 0)
+                {
+                    sum += numbers[i];
+                }
+                else if (numbers[i] % 2 != 0)
+                {
+                    sum -= numbers[i];
+                }
+                
+            }
+            return sum;
         }
 
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
