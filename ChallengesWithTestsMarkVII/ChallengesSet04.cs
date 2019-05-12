@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace ChallengesWithTestsMarkVII
 {
@@ -25,12 +28,24 @@ namespace ChallengesWithTestsMarkVII
 
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
         {
-            throw new NotImplementedException();
+            string[] strings = new string[4]{str1, str2, str3, str4};
+
+            int shortestWord = strings.Min(w => w.Length);
+            return shortestWord;
         }
 
         public int GetSmallestNumber(int number1, int number2, int number3, int number4)
         {
-            throw new NotImplementedException();
+            int[] numbers = new int[4] { number1, number2, number3, number4 };
+            int smallest = numbers[0];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] < smallest)
+                {
+                    smallest = numbers[i];
+                }
+            }
+            return smallest;
         }
 
         public void ChangeBusinessNameTo_TrueCoders(Business biz)
@@ -52,7 +67,15 @@ namespace ChallengesWithTestsMarkVII
 
         public bool IsStringANumber(string input)
         {
-            throw new NotImplementedException();
+            double result;
+            if (double.TryParse(input, out result))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
@@ -121,7 +144,15 @@ namespace ChallengesWithTestsMarkVII
             {
                 sum = sum * i;
             }
-            return sum;
+            if (sum >= 0)
+            {
+                return sum;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
         }
     }
 }
