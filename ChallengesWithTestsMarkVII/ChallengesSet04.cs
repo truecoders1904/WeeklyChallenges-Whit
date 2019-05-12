@@ -86,37 +86,42 @@ namespace ChallengesWithTestsMarkVII
             {
                 return 0;
             }
-            double averageSum = 0;
-            double averageCount = 0;
-            int nonevencount = 0;
+
+            double averageEvenSum = 0;
+            double averageEvenCount = 0;
+            int nonEvenCount = 0;
+
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] % 2 == 0)
                 {
-                    averageSum += numbers[i];
-                    averageCount += 1;
+                    averageEvenSum += numbers[i];
+                    averageEvenCount += 1;
                 }
                 else
                 {
-                    nonevencount += 1;
+                    nonEvenCount += 1;
                 }
             }
-
-            if (nonevencount != numbers.Length)
+            if (nonEvenCount != numbers.Length)
             {
 
-                return averageSum / averageCount;
+                return averageEvenSum / averageEvenCount;
             }
             else
             {
                 return 0;
             }
-
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            int sum = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                sum = sum * i;
+            }
+            return sum;
         }
     }
 }
