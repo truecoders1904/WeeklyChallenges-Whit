@@ -21,7 +21,6 @@ namespace ChallengesWithTestsMarkVII
                 {
                     sum -= numbers[i];
                 }
-                
             }
             return sum;
         }
@@ -50,7 +49,7 @@ namespace ChallengesWithTestsMarkVII
 
         public void ChangeBusinessNameTo_TrueCoders(Business biz)
         {
-            throw new NotImplementedException();
+            biz.Name = "TrueCoders";
         }
 
         public bool CouldFormTriangle(int sideLength1, int sideLength2, int sideLength3)
