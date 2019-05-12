@@ -21,13 +21,14 @@ namespace ChallengesWithTestsMarkVII
                 {
                     sum -= numbers[i];
                 }
+
             }
             return sum;
         }
 
         public int GetLengthOfShortestString(string str1, string str2, string str3, string str4)
         {
-            string[] strings = new string[4]{str1, str2, str3, str4};
+            string[] strings = new string[4] { str1, str2, str3, str4 };
 
             int shortestWord = strings.Min(w => w.Length);
             return shortestWord;
@@ -59,8 +60,8 @@ namespace ChallengesWithTestsMarkVII
                 return true;
             }
             else
-            { 
-                return false; 
+            {
+                return false;
             }
         }
 
@@ -138,19 +139,18 @@ namespace ChallengesWithTestsMarkVII
 
         public int Factorial(int number)
         {
+            if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
             int sum = 1;
             for (int i = 1; i <= number; i++)
             {
                 sum = sum * i;
             }
-            if (sum >= 0)
-            {
-                return sum;
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException();
-            }
+
+            return sum;
 
         }
     }
