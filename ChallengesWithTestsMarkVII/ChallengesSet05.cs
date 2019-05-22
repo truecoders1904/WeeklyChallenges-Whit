@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Text;
 
 namespace ChallengesWithTestsMarkVII
 {
@@ -7,7 +10,27 @@ namespace ChallengesWithTestsMarkVII
     {
         public int GetNextNumberDivisibleByN(int startNumber, int n)
         {
-            throw new NotImplementedException();
+            if (startNumber == 0)
+            {
+                return n;
+            }
+
+            List<int> firstlist = new List<int>();
+            int maxLoop = startNumber * n;
+            int[] numbersDivisblebyN = new int[0];
+
+            for (int i = 0; i < maxLoop; i++)
+            {
+                if (i > startNumber && i % n == 0)
+                {
+                    firstlist.Add(i);
+                }
+
+            }
+
+            firstlist.ToArray();
+            return firstlist[0];
+
         }
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
@@ -70,36 +93,47 @@ namespace ChallengesWithTestsMarkVII
 
         public string TurnWordsIntoSentence(string[] words)
         {
-            int containsLetters = 0;
-           if (words == null || words.Length == 0)
-            {
-                return "";
-            }
-            string result = words[0];
+            string finalSentence = "";
 
-            for (int i = 1; i < words.Length; i++)
+            List<String> sentence = new List<String>();
+            foreach (string word in words)
             {
-                if (words[i] != "" || words[i] != " "|| words[i] != "   ")
+                if (word != "" || word != " " || word != " ")
                 {
-                    result += " " + words[i];
-                    containsLetters += 1;
+                    word.Trim();
+                    sentence.Add(word + " ");
                 }
-              
             }
 
-            if (containsLetters == 0)
+            for (int i = 0; i < sentence.Count; i++)
             {
-                return "";
+                finalSentence += sentence.ElementAt(i);
             }
-            else
-            {
-                return result + ".";
-            }
+
+            return finalSentence.Trim() + ".";
+
+
+
         }
 
         public double[] GetEveryFourthElement(List<double> elements)
         {
-            throw new NotImplementedException();
+            if (elements == null)
+            {
+                return new double[0];
+            }
+            double[] array = elements.ToArray();
+            List<double> everyFourthelement = new List<double>();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 4 == 0)
+                {
+                    everyFourthelement.Add(array[i]);
+                }
+            }
+            var result = everyFourthelement.ToArray();
+            return result;
         }
 
         public bool TwoDifferentElementsInArrayCanSumToTargetNumber(int[] nums, int targetNumber)
