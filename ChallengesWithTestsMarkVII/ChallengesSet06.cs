@@ -12,18 +12,41 @@ namespace ChallengesWithTestsMarkVII
 
         public bool IsPrimeNumber(int num)
         {
+            if (num <= 1)
+            {
+                return false;
+            }
             for (int i = 2; i < num; i++)             {                 if (num % i == 0)                 {                     return false;                 }             }             return true;         }
 
 
         public int IndexOfLastUniqueLetter(string str)
         {
-            char[] strChar = str.ToCharArray();             int lastunique = 0;             int samecount = 0;             for (int i = 0; i < strChar.Length; i++)             {                 for (int e = 0; e < strChar.Length; e++)                 {                     if (strChar[i] == strChar[e])                     {                         samecount += 1;                     }                     else                     {                         lastunique = i;                      }
-
-                }             }             if (samecount == strChar.Length)             {                 return -1;             }             return lastunique;         }
+            bool isdupilicate = true;
+            char[] strChar = str.ToCharArray();             int lastunique = 0;             int CheckCount = 0;             for (int i = 0; i < strChar.Length; i++)             {                 for (int e = 0; e < strChar.Length; e++)                 {                     if (strChar[i] != strChar[e] && i != e)                     {                         isdupilicate = false;
+                        CheckCount += 1;
+                                            }
+                }             }              return lastunique;         }
 
         public int MaxConsecutiveCount(int[] numbers)
         {
-            throw new NotImplementedException();
+
+            int MaxConsecutiveCount = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int currentMax = 0;
+                for (int e = 0; e < numbers.Length - i; e++)
+                {
+                    while (numbers[i] == numbers[i + e])
+                    {
+                        currentMax += 1;
+                        if (MaxConsecutiveCount <= currentMax)
+                        {
+                            MaxConsecutiveCount = currentMax;
+                        }
+                    }
+                }
+            }
+            return MaxConsecutiveCount;
         }
 
         public double[] GetEveryNthElement(List<double> elements, int n)
