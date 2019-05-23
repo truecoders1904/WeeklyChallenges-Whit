@@ -93,24 +93,41 @@ namespace ChallengesWithTestsMarkVII
 
         public string TurnWordsIntoSentence(string[] words)
         {
-            string finalSentence = "";
-
-            List<String> sentence = new List<String>();
-            foreach (string word in words)
+            if (words == null || words.Length == 0)
             {
-                if (word != "" || word != " " || word != " ")
+                return "";
+
+            }
+
+            int badwords = 0;
+            int goodwords = 0;
+            List<string> wordslist = new List<string>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+
+                if (words[i] == "" || words[i] == " " || words[i] == "  ")
                 {
-                    word.Trim();
-                    sentence.Add(word + " ");
+
+
+                    badwords += 1;
                 }
-            }
+                else
+                {
+                    wordslist.Add(words[i].Trim());
+                    goodwords += 1;
+                }
 
-            for (int i = 0; i < sentence.Count; i++)
+            }
+            if (goodwords == 0)
             {
-                finalSentence += sentence.ElementAt(i);
-            }
+                return "";
 
-            return finalSentence.Trim() + ".";
+            }
+            else
+            {
+                return String.Join(" ", wordslist) + ".";
+            }
 
 
 
