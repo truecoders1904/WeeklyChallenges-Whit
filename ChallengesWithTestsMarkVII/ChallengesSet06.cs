@@ -21,31 +21,44 @@ namespace ChallengesWithTestsMarkVII
 
         public int IndexOfLastUniqueLetter(string str)
         {
-            bool isdupilicate = true;
-            char[] strChar = str.ToCharArray();             int lastunique = 0;             int CheckCount = 0;             for (int i = 0; i < strChar.Length; i++)             {                 for (int e = 0; e < strChar.Length; e++)                 {                     if (strChar[i] != strChar[e] && i != e)                     {                         isdupilicate = false;
-                        CheckCount += 1;
-                                            }
-                }             }              return lastunique;         }
+
+            char[] strChar = str.ToCharArray();             int lastunique = 0;              for (int i = 0; i < strChar.Length; i++)             {
+                int SameCount = 0;                 for (int e = 0; e < strChar.Length; e++)                 {
+                     if (strChar[i] == strChar[e] && i != e)                     {                         SameCount += 1;
+                        if(SameCount == 0)
+                        {
+                            lastunique = i;
+                        }                     }
+                }             }             return lastunique;         }
 
         public int MaxConsecutiveCount(int[] numbers)
         {
-
+            int currentMax = 0;
             int MaxConsecutiveCount = 0;
             for (int i = 0; i < numbers.Length; i++)
             {
-                int currentMax = 0;
-                for (int e = 0; e < numbers.Length - i; e++)
+                currentMax = 0;
+                for (int e = i; e < numbers.Length; e++)
                 {
-                    while (numbers[i] == numbers[i + e])
+                    if (numbers[i] == numbers[e])
                     {
                         currentMax += 1;
-                        if (MaxConsecutiveCount <= currentMax)
-                        {
-                            MaxConsecutiveCount = currentMax;
-                        }
                     }
+                    else if (numbers[i] != numbers[e])
+                    {
+                        i = e - 1;
+                        break;
+                    }
+
+                }
+                if (currentMax > MaxConsecutiveCount)
+
+                {
+                    MaxConsecutiveCount = currentMax;
+
                 }
             }
+
             return MaxConsecutiveCount;
         }
 
