@@ -21,15 +21,47 @@ namespace ChallengesWithTestsMarkVII
 
         public int IndexOfLastUniqueLetter(string str)
         {
+            if (str.Length == 0)
+            {
+                return -1;
+            }
+            if(str.Length == 1)
+            {
+                return 0;
+            }
+            int lastIndex = 0;
+            string temp1 = "";
+            string temp2 = "";
+            int sameCount = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
 
-            char[] strChar = str.ToCharArray();             int lastunique = 0;              for (int i = 0; i < strChar.Length; i++)             {
-                int SameCount = 0;                 for (int e = 0; e < strChar.Length; e++)                 {
-                     if (strChar[i] == strChar[e] && i != e)                     {                         SameCount += 1;
-                        if(SameCount == 0)
-                        {
-                            lastunique = i;
-                        }                     }
-                }             }             return lastunique;         }
+                int ContainsSame = 0;
+                temp1 = str.Substring(i, 1);
+                for (int e = 0; e < str.Length; e++)
+                {
+                    temp2 = str.Substring(e, 1);
+                    if ((temp1 == temp2) && (i != e))
+                    {
+                        ContainsSame += 1;
+                        sameCount = ContainsSame;
+                    }
+
+                }
+                if (ContainsSame < 1)
+                {
+                    lastIndex = i;
+                }
+            }
+            if (lastIndex == 0 && sameCount == str.Length -1)
+            {
+                return -1;
+            }
+            else
+            {
+                return lastIndex;
+            }
+         }
 
         public int MaxConsecutiveCount(int[] numbers)
         {
