@@ -12,7 +12,23 @@ namespace ChallengesWithTestsMarkVII
 
         public string GetCommaSeparatedListOfProfitableBusinesses(List<Business> businesses)
         {
-            throw new NotImplementedException();
+            string result = "";
+            foreach (var biz in businesses)
+            {
+                if (biz.TotalRevenue > biz.TotalExpenses)
+                {
+                    result += biz.Name + ",";
+                }
+
+            }
+            if (result.Length - 1 >= 0)
+            {
+                string removecomma = result.Remove(result.Length - 1);
+                return removecomma;
+            }
+            else
+                return result;
+
         }
 
         public string GetNameOfHighestParentCompany(Business business)
