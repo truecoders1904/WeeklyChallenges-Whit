@@ -35,8 +35,8 @@ namespace ChallengesWithTestsMarkVII
             }
             if (result.Length - 1 >= 0)
             {
-                string removecomma = result.Remove(result.Length - 1);
-                return removecomma;
+                string removedcomma = result.Remove(result.Length - 1);
+                return removedcomma;
             }
             else
             {
@@ -54,16 +54,86 @@ namespace ChallengesWithTestsMarkVII
         public enum TicTacToeResult { X, O, Draw }
         public TicTacToeResult GetTicTacToeWinner(char[,] finalBoard)
         {
-            throw new NotImplementedException();
+            if (finalBoard[0,0] == 'O' && finalBoard[1, 0] == 'O' && finalBoard[2, 0] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[0, 0] == 'O' && finalBoard[0, 1] == 'O' && finalBoard[0, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[0, 1] == 'O' && finalBoard[1, 1] == 'O' && finalBoard[2, 1] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[0, 2] == 'O' && finalBoard[1, 2] == 'O' && finalBoard[2, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[0, 0] == 'O' && finalBoard[1, 1] == 'O' && finalBoard[2, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[1, 0] == 'O' && finalBoard[1, 1] == 'O' && finalBoard[1, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[2, 0] == 'O' && finalBoard[2, 1] == 'O' && finalBoard[2, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if (finalBoard[2, 0] == 'O' && finalBoard[1, 1] == 'O' && finalBoard[0, 2] == 'O')
+            {
+                return TicTacToeResult.O;
+            }
+            else if(finalBoard[0, 0] == 'X' && finalBoard[1, 0] == 'X' && finalBoard[2, 0] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[0, 0] == 'X' && finalBoard[0, 1] == 'X' && finalBoard[0, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[0, 0] == 'X' && finalBoard[1, 1] == 'X' && finalBoard[2, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[1, 0] == 'X' && finalBoard[1, 1] == 'X' && finalBoard[1, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[2, 0] == 'X' && finalBoard[2, 1] == 'X' && finalBoard[2, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[2, 0] == 'X' && finalBoard[1, 1] == 'X' && finalBoard[0, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[0, 1] == 'X' && finalBoard[1, 1] == 'X' && finalBoard[2, 1] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else if (finalBoard[0, 2] == 'X' && finalBoard[1, 2] == 'X' && finalBoard[2, 2] == 'X')
+            {
+                return TicTacToeResult.X;
+            }
+            else
+            {
+                return TicTacToeResult.Draw;
+            }
+
         }
 
         public bool EachArrayInJaggedArrayContainsTargetNumber(int[][] numbers, int targetNumber)
         {
             if (numbers.Length == 0)
             { return false; }
+
             int outerarrays = 0;
             int contains = 0;
             int arraycount = 0;
+
             foreach (var arrays in numbers)
             {
                 outerarrays += 1;
@@ -80,7 +150,6 @@ namespace ChallengesWithTestsMarkVII
                 {
                     arraycount += 1;
                 }
-
             }
             if (arraycount == outerarrays)
             {
