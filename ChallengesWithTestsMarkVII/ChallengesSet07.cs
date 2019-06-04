@@ -7,7 +7,19 @@ namespace ChallengesWithTestsMarkVII
     {
         public int CountOfBusinessesWithNegativeNetProfit(List<Business> businesses)
         {
-            throw new NotImplementedException();
+            if (businesses == null)
+            {
+                return 0;
+            }
+            int count =0;
+            foreach (var biz in businesses)
+            {
+                if (biz.TotalRevenue < biz.TotalExpenses)
+                {
+                    count += 1;
+                }
+            }
+            return count;
         }
 
         public string GetCommaSeparatedListOfProfitableBusinesses(List<Business> businesses)
@@ -27,7 +39,9 @@ namespace ChallengesWithTestsMarkVII
                 return removecomma;
             }
             else
+            {
                 return result;
+            }
 
         }
 
