@@ -31,7 +31,6 @@ namespace ChallengesWithTestsMarkVII
                 {
                     result += biz.Name + ",";
                 }
-
             }
             if (result.Length - 1 >= 0)
             {
@@ -42,13 +41,15 @@ namespace ChallengesWithTestsMarkVII
             {
                 return result;
             }
-
         }
 
         public string GetNameOfHighestParentCompany(Business business)
         {
-            // If there is Company A, whose parent is Company B, whose parent is Company C, then given Company A return Company C
-            throw new NotImplementedException();
+            if(business.ParentCompany == null)
+            {
+                return business.Name;
+            }
+            return GetNameOfHighestParentCompany(business.ParentCompany);
         }
 
         public enum TicTacToeResult { X, O, Draw }
@@ -122,9 +123,7 @@ namespace ChallengesWithTestsMarkVII
             {
                 return TicTacToeResult.Draw;
             }
-
         }
-
         public bool EachArrayInJaggedArrayContainsTargetNumber(int[][] numbers, int targetNumber)
         {
             if (numbers.Length == 0)
