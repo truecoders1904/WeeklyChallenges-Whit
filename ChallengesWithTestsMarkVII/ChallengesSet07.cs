@@ -59,7 +59,38 @@ namespace ChallengesWithTestsMarkVII
 
         public bool EachArrayInJaggedArrayContainsTargetNumber(int[][] numbers, int targetNumber)
         {
-            throw new NotImplementedException();
+            if (numbers.Length == 0)
+            { return false; }
+            int outerarrays = 0;
+            int contains = 0;
+            int arraycount = 0;
+            foreach (var arrays in numbers)
+            {
+                outerarrays += 1;
+                contains = 0;
+
+                foreach (var num in arrays)
+                {
+                    if (num == targetNumber)
+                    {
+                    contains = 1;
+                    }
+                }
+                if (contains == 1)
+                {
+                    arraycount += 1;
+                }
+
+            }
+            if (arraycount == outerarrays)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
     }
 }
